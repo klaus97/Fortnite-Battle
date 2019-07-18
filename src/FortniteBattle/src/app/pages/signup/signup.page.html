@@ -28,9 +28,9 @@
 
         <ion-item no-padding class="animated fadeInUp">
           <ion-label position="floating">{{ 'PASSWORD' | translate }}</ion-label>
-          <ion-input color="secondary"  minlength="8" maxlength="30" type="password" formControlName="password"></ion-input>
+          <ion-input color="secondary"  minlength="8" maxlength="30" type="password" formControlName="password" (click)="onShow();"></ion-input>
         </ion-item>
-        <p ion-text class="text08" *ngIf="signupFormModel.get('password').touched && signupFormModel.get('password').invalid">
+        <p [hidden]="check" ion-text class="text08" *ngIf="signupFormModel.get('password').touched && signupFormModel.get('password').invalid">
           <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }}</ion-text>
         </p>
 

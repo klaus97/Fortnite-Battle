@@ -8,7 +8,9 @@ import {Storage} from '@ionic/storage';
 
 export interface Account {
     username: string;
-    password: string;
+    password: string | Int32Array;
+    email: string;
+    dataNascita: string;
 
 }
 
@@ -58,7 +60,6 @@ export class UtenteService {
             }));
     }
 
-
     updateProfilo(user: Utente): Observable<Utente> {
         return this.http.put<Utente>(URL.UPDATE_PROFILO, user, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
@@ -92,8 +93,24 @@ export class UtenteService {
         return this.loggedIn$.asObservable();
     }
 
-    createUtente(newuser: Utente): Observable<Utente> {
-       return this.http.post<Utente>(URL.SIGNUP, newuser);
+    createUtente(account: Account): Observable<Utente> {
+       return this.http.post<Utente>(URL.SIGNUP, account, {observe: 'response'}).pipe(
+            map((resp: HttpResponse<Utente>) => {
+
+                const token = resp.headers.get(X_AUTH);
+                this.storage.set(AUTH_TOKEN, token);
+                this.authToken = token;
+                // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
+                // profilo dell'utente stesso non si fa una chiamata REST.
+                this.storage.set(UTENTE_STORAGE, resp.body);
+                // update dell'observable dell'utente
+                this.utente$.next(resp.body);
+                this.loggedIn$.next(true);
+                // console.log(token);
+
+                console.log(resp.body);
+                return resp.body;
+            }));
 
     }
 

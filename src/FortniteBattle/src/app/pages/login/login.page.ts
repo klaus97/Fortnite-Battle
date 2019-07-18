@@ -7,6 +7,7 @@ import {Utente} from '../../model/utente.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AUTH_TOKEN, UTENTE_STORAGE} from '../../constants';
 import {Storage} from '@ionic/storage';
+import {Md5} from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -41,6 +42,7 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     const account: Account = this.loginFormModel.value;
+    account.password = Md5.hashStr(this.loginFormModel.value.password);
     this.utenteService.login(account).subscribe((utente: Utente) => {
           this.navController.navigateRoot('notizie');
           console.log(this.storage.get(UTENTE_STORAGE).then(value => {

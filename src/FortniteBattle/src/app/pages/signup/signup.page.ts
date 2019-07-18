@@ -3,9 +3,10 @@ import {AlertController, NavController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PasswordValidation} from '../../../services/PasswordValidation';
 import {Utente} from '../../model/utente.model';
-import {UtenteService} from '../../../services/utente.service';
+import {Account, UtenteService} from '../../../services/utente.service';
 import {TranslateService} from '@ngx-translate/core';
 import * as moment from 'moment';
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-signup',
@@ -15,16 +16,14 @@ import * as moment from 'moment';
 export class SignupPage implements OnInit {
 
   public signupFormModel: FormGroup;
-  newuser: Utente = {
-    id: '',
-    username: '',
-    nome: '',
-    email: '',
-    dataNascita: '',
-    bio: '',
-    avatar: ''
-  };
+  check = true;
   now: any;
+  account: Account = {
+    username: '',
+    password: '',
+    email: '',
+    dataNascita: ''
+  };
 
   constructor(private navController: NavController,
               private formBuilder: FormBuilder,
@@ -69,14 +68,22 @@ export class SignupPage implements OnInit {
     }
 
   onCreate() {
+    const passmd5 = Md5.hashStr(this.signupFormModel.value.password);
+    this.account.password = passmd5;
+    this.account.username = this.signupFormModel.value.username;
+    this.account.email = this.signupFormModel.value.email;
+    const datanascita = moment(this.signupFormModel.value.dat).format('YYYY/MM/DD');
+    this.account.dataNascita = datanascita;
+    /*
     this.newuser.username = this.signupFormModel.value.username;
     this.newuser.email = this.signupFormModel.value.email;
     const datanascita = moment(this.signupFormModel.value.dat).format('DD/MM/YYYY');
     this.newuser.dataNascita = datanascita;
     // uso BIO per memorizzare momentaneamente la password da inviare.
-    this.newuser.bio = this.signupFormModel.value.password;
 
-    this.utenteservice.createUtente(this.newuser).subscribe((nuovoUtente: Utente) => {
+    this.newuser.bio = pass;*/
+
+    this.utenteservice.createUtente(this.account).subscribe((nuovoUtente: Utente) => {
       this.presentAlert();
     }, error1 => {
       this.errorAlert();
@@ -97,7 +104,7 @@ export class SignupPage implements OnInit {
         {
           text: 'OK',
           handler: async () => {
-            this.navController.navigateForward('login');
+            this.navController.navigateRoot('notizie');
           }
         }]
     });
@@ -124,5 +131,9 @@ export class SignupPage implements OnInit {
         }]
     });
     return await alert.present();
+  }
+
+  onShow() {
+    this.check = false;
   }
 }
