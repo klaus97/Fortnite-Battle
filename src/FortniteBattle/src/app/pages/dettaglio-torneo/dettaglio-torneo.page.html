@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'DETTAGLIO_TORNEO' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="head_reg">
+    <ion-icon slot="start" name="clipboard"></ion-icon><ion-label style="margin: 0 5px;">{{ 'LABEL_REGOLAMENTO' | translate }}</ion-label>
+  </div>
+        <div class="div_reg" >
+
+          <ion-text>
+            Qui ci sarà il dettaglio del torneo con le varie regole ecc..
+            <p></p>
+            1)Partecipanti al torneo:
+            I partecipanti massimi, che potranno prendere parte ai tornei, previsti sono di 100.
+            Ogni partecipante dovrà partecipare con un account fortnite attivo, e giocare con quello per tutta la durata del torneo.
+            <p></p>
+            1.1)Ogni gicatore potrà partecipare solo una volta al torneo e solo con un account.
+            <p></p>
+            2)Premi:
+            I premi in palio messi per i tornei saranno visibili all'interno della classifica, prenmendo l'apposito button posto sotto il regolamento.
+            Sono previsti per ogni torneo solo 3 premi e per le prime 3 posizioni.
+            <p></p>
+            3)Calcolo Punteggi:
+            Il calcolo dei punteggi verrà effettuato soltanto dopo la fine di ogni torneo, il calcolo dei punteggi avverà in maniera automatica andando a prelevare gli ultimi dati sui match giocati.
+            Il punteggio totale sarà composto dal numero di kill fatte, dal posizionamento/vittorie ottenute e da altri parametri.
+          </ion-text>
+        </div>
+
+  <div text-center style="margin-top: 12px">
+    <ion-button class="btn_login"  size="medium" shape="round" color="primary" (click)="leaderboard()">
+      {{ 'LEADERBOARD_BUTTON' | translate }}
+    </ion-button>
+      <ion-button [hidden]="btnjoin" class="btn_login" size="medium" shape="round" color="primary" (click)="presentAlert()">
+        {{ 'JOIN_BUTTON' | translate }}
+      </ion-button>
+  </div>
+
+</ion-content>

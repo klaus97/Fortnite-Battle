@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'SIGNUP_BUTTON' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn login auth-page">
+
+  <ion-text class="bg-class" text-center>
+    <div margin-top="30px">Fortnite Battle</div>
+  </ion-text>
+
+  <div style="margin-top: 50px;" class="auth-content">
+
+    <form [formGroup]="signupFormModel">
+      <div>
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input color="secondary" maxlength="40" formControlName="username" type="username"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="signupFormModel.get('username').touched && signupFormModel.get('username').invalid">
+          <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'PASSWORD' | translate }}</ion-label>
+          <ion-input color="secondary"  minlength="8" maxlength="30" type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="signupFormModel.get('password').touched && signupFormModel.get('password').invalid">
+          <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'PASSWORD_CONFIRM' | translate }}</ion-label>
+          <ion-input color="secondary" minlength="8" maxlength="30" type="password" formControlName="confirmpassword"></ion-input>
+        </ion-item>
+        <ion-label *ngIf="signupFormModel.get('confirmpassword').errors?.MatchPassword" style="color: red">
+          {{'PASSMATCH_REQUIRED' | translate}}
+        </ion-label>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'EMAIL' | translate }}</ion-label>
+          <ion-input color="secondary" inputmode="email" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="signupFormModel.get('email').touched && signupFormModel.get('email').invalid">
+          <ion-text color="danger">{{ 'EMAIL_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'DATANASCITA' | translate }}</ion-label>
+          <ion-datetime [max]="now" displayFormat="DD/MM/YYYY" pickerFormat="DD-MMM-YYYY" style="color: #9b00bb" placeholder="..." formControlName="dat"></ion-datetime>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="signupFormModel.get('dat').touched && signupFormModel.get('dat').invalid">
+          <ion-text color="danger">{{ 'DATANASCITA_REQUIRED' | translate }}</ion-text>
+        </p>
+
+
+      </div>
+      <div text-center style="margin-top: 25px">
+          <ion-button class="btn_login" size="medium" shape="round" color="primary" (click)="onCreate()" [disabled]="!signupFormModel.valid" tappable>
+            {{ 'SIGNUP_BUTTON' | translate }}
+          </ion-button>
+      </div>
+    </form>
+
+  </div>
+
+</ion-content>

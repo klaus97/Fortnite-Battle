@@ -1,0 +1,70 @@
+.rec_info{
+  width: auto;
+  height: 35px;
+  background: blue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.style_lbl{
+  font-size: large;
+  text-align: left;
+}
+
+.style_lbl2{
+  font-size: large;
+  text-align: center;
+}
+
+.style_ckbox{
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+  display: inline-block;
+}
+
+.style_click {
+  transition-duration: 0.7s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.style_click:after {
+  content: "";
+  background: whitesmoke;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.style_click:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.txt{
+  font-size: 11px;
+  color: grey;
+}
+
+.image{
+  position: relative;
+  width: 100%;
+
+}

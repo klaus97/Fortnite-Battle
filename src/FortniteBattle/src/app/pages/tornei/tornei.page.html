@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light" class="title">{{ 'TORNEI_MENU' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-button expand="full" slot="end" fill="clear" color="light" (click)="OnCreatorneo()"><ion-icon style="font-size: 25px" name="add"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" style="background-color: transparent;" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+    <div>
+      <p text-center><ion-label style="font-weight: bold; font-size: large; margin: auto;">{{ 'LABEL_TORNEI' | translate}}</ion-label></p>
+
+      <div>
+       <ng-container *ngFor="let torneo of tornei$ | async">
+           <ion-card id="cardexiperd_style" *ngIf="torneo.username.includes(user)" (click)="detailtournament(torneo)" >
+               <ion-card-header>
+                   <ion-card-title>{{torneo.nome}}</ion-card-title>
+                   <ion-card-subtitle>{{torneo.descrizione}}</ion-card-subtitle>
+                   <ng-container *ngIf="torneo.durata < now;else let a = true">
+                       <ion-img [hidden]="a" [src]="imagecard[1]" class="img_resize"></ion-img>
+                   </ng-container>
+                   <ng-container *ngIf="torneo.datainizio > now;else let a = true">
+                       <ion-img [hidden]="a" [src]="imagecard[0]" class="img_resize">
+                       </ion-img></ng-container>
+               </ion-card-header>
+               <ion-card-content style="text-align: right">
+                   {{ 'PARTECIPANTI_TXT' | translate}} {{torneo.partecipanti}}/100
+                   <div class="rec_info">
+                       <span class="style_lbl"> {{'INIZIO_TXT' | translate}} {{torneo.datainizio}} </span>
+                   </div>
+               </ion-card-content>
+           </ion-card>
+       </ng-container>
+      </div>
+
+
+        <p text-center><ion-label style="font-weight: bold; font-size: large; margin: auto;text-align: center; align-items: center;">{{ 'TORNEI_MENU' | translate }}</ion-label></p>
+    </div>
+
+  <div>
+   <ng-container *ngFor="let torneo of tornei$ | async">
+    <ion-card *ngIf="! torneo.username.includes(user)"(click)="detailtournament(torneo)" >
+      <ion-card-header>
+        <ion-card-title>{{torneo.nome}}</ion-card-title>
+        <ion-card-subtitle>{{torneo.descrizione}}</ion-card-subtitle>
+          <ng-container *ngIf="torneo.datainizio < now;else let a = true"><ion-img [hidden]="a" [src]="imagecard[1]" class="img_resize"></ion-img></ng-container>
+          <ng-container *ngIf="torneo.datainizio > now;else let a = true"><ion-img [hidden]="a" [src]="imagecard[0]" class="img_resize"></ion-img></ng-container>
+      </ion-card-header>
+      <ion-card-content style="text-align: right">
+        {{ 'PARTECIPANTI_TXT' | translate}} {{torneo.partecipanti}}/100
+        <div class="rec_info">
+          <span class="style_lbl"> {{'INIZIO_TXT' | translate}} {{torneo.datainizio}} </span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+   </ng-container>
+  </div>
+</ion-content>

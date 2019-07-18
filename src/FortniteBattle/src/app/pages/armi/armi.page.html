@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'ARMI_MENU' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item >
+    <ion-select [(ngModel)]="weapon" placeholder="{{ 'SCEGLI-ARMA_TXT' | translate}}"  (ionChange)="ChangeWeapValue();" style="font-size: smaller; margin: auto;  text-align: center;align-items: center">
+            <ion-select-option *ngFor="let arma of listnomearma; let i=index" value="{{arma}}">{{arma}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+    <ion-item [hidden]="flagw">
+        <ion-select [(ngModel)]="rarita" placeholder="{{ 'SCEGLI-RARITA_TXT' | translate}}" style="font-size: smaller; text-align: center; align-items: center;margin: auto;"(ionChange)="ChangeValue();">
+            <ion-select-option  value="uncommon">Uncommon</ion-select-option>
+            <ion-select-option  value="rare">Rare</ion-select-option>
+            <ion-select-option  value="epic">Epic</ion-select-option>
+            <ion-select-option  value="legendary">Legendary</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+        <ion-img [hidden]="flagimage" src="{{selectedarma.image}}" class="imgw_resize"></ion-img>
+
+  <div [hidden]="flag">
+   <p text-center><ion-label>{{'CARATTERISTICHE_TXT' | translate}}</ion-label></p>
+    <ion-list inset="true">
+      <ion-item>
+        <ion-label text-left>{{'RARITA_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.rarita}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-left>{{'DANNICORPO_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.danniCorpo}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-left>{{'DANNITESTA_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.danniTesta}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-left>{{'RANGE_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.range}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-left>{{'CARICATORE_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.caricatore}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label text-left>{{'RICARICA_TXT' | translate}}</ion-label><ion-label text-right style="color: #9b00bb">{{selectedarma.reload}}s</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+
+</ion-content>

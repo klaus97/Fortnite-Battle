@@ -1,0 +1,26 @@
+<ion-app>
+  <ion-menu class="btn_menu" *ngIf="(utente$ | async) as utente">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-menu-toggle>
+          <ion-button  expand="full" fill="clear" color="light" (click)="OnProfile()">
+              <ion-icon slot="start" name="contact"></ion-icon>
+              <span class="btn_menu_style">{{utente.username}}</span>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-button expand="full" fill="clear" color="dark" (click)="OnNews()"><ion-icon slot="start" name="paper"></ion-icon><span class="btn_menu_style">{{'NOTIZIE_MENU' | translate}}</span></ion-button>
+          <ion-button expand="full" fill="clear" color="dark" (click)="OnStats()"><ion-icon slot="start" name="stats"></ion-icon><span class="btn_menu_style">{{'STATISTICHE_MENU' | translate}}</span></ion-button>
+          <ion-button expand="full" fill="clear" color="dark" (click)="OnWeapons()"><ion-icon slot="start" name="md-nuclear"></ion-icon><span class="btn_menu_style">{{'ARMI_MENU' | translate}}</span></ion-button>
+          <ion-button expand="full" fill="clear" color="dark" (click)="OnTournaments()"><ion-icon slot="start" name="trophy"></ion-icon><span class="btn_menu_style">{{'TORNEI_MENU' | translate}}</span></ion-button>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    <ion-button expand="full" fill="clear" color="dark" (click)="OnLogout()"><ion-icon slot="start" name="log-out"></ion-icon><span class="btn_menu_style">LogOut</span></ion-button>
+  </ion-menu>
+  <ion-router-outlet main ></ion-router-outlet>
+</ion-app>

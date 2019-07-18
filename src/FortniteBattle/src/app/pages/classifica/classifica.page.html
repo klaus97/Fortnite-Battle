@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'CLASSIFICA_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div style="font-size: 13px">
+    <div style="margin-top: 2px;margin-left: 15px;margin-right: 15px;" align-items-center>
+      <ion-icon style="font-size: 11px" name="alert"></ion-icon><ion-label class="alert_style">Per effettuare il refresh dei dati, effettuare uno swipe.</ion-label>
+    </div>
+    <div class="table">
+      <ion-grid fixed="true" text-center>
+        <ion-row class="color_style">
+          <ion-col size="1.5" >Pos</ion-col>
+          <ion-col size="3.4" >Player</ion-col>
+          <ion-col size="2" >Match</ion-col>
+          <ion-col size="2">Punti</ion-col>
+          <ion-col size="3" >Premio</ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let user of listuser let i = index" class="color_style">
+          <ion-col size="1.5" >{{[i+1]}}</ion-col>
+          <ion-col size="3.4" >{{listuser[i]}}</ion-col>
+          <ion-col size="2" >{{listmatch[i]}}</ion-col>
+          <ion-col size="2">{{listpoints[i]}}</ion-col>
+          <ion-col size="3" >{{listpremio[i]}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

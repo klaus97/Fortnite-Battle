@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'PROFILO_MENU' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="display: flex">
+
+  <ng-container *ngIf="(utente$ | async) as utente">
+    <div style="margin-top: 15px">
+        <ion-avatar class="avatar">
+          <img src="{{utente.avatar}}">
+        </ion-avatar>
+        <p text-center><ion-label color="primary" style="font-weight: bolder; font-size: large; margin: auto" text-center>{{utente.username}}</ion-label></p>
+        <p style="margin-right: 30px;"><ion-textarea disabled="true" class="textarea_style"> {{utente.bio}} </ion-textarea></p>
+    </div>
+
+    <p></p>
+    <div class="table">
+      <ion-list>
+        <ion-item><ion-label>E-mail:</ion-label> <ion-label text-left class="lbl_style"> {{utente.email}} </ion-label> </ion-item>
+        <ion-item><ion-label>{{'NOME_TXT' | translate}}:</ion-label> <ion-label text-left class="lbl_style"> {{utente.nome}} </ion-label> </ion-item>
+        <ion-item><ion-label>{{'DATANASCITA' | translate}}:</ion-label> <ion-label text-left class="lbl_style"> {{utente.dataNascita | date:'dd/MM/yyyy'}} </ion-label> </ion-item>
+      </ion-list>
+    </div>
+
+  </ng-container>
+
+
+  <div text-center style="margin-left: 5px">
+    <ion-button class="btn_login"  size="medium" shape="round" color="primary" (click)="OnUpdate()">
+      {{ 'UPDATE_BUTTON' | translate }}
+    </ion-button>
+  </div>
+
+</ion-content>

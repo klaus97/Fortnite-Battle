@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'UPDATE_AVATAR' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="margin-top: 15px;">
+    <ion-list class="list_style">
+      <ng-container *ngFor="let image of img">
+          <ion-col><img  class="avatar_style" src="{{image}}" (click)="onChangeAvatar(image);"></ion-col>
+      </ng-container>
+    </ion-list>
+  </div>
+</ion-content>

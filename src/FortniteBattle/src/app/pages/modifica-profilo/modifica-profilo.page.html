@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'UPDATE_PROFILO' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn login auth-page">
+
+  <div style="margin-top: 20px;" class="auth-content">
+
+    <form [formGroup]="modprofileFormModel" *ngIf="(utente$ | async) as utente">
+      <div>
+        <ion-item position="floating" no-padding class="animated fadeInUp" (click)="onChangeAvatar();">
+          <ion-avatar align="left" class="avatar">
+            <img src="{{temp}}">
+          </ion-avatar>
+          <ion-label color="secondary">&nbsp;Avatar</ion-label>
+          <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input color="secondary" type="username" formControlName="username" value="{{utente.username}}"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="modprofileFormModel.get('username').touched && modprofileFormModel.get('username').invalid">
+          <ion-text color="danger">{{ 'USERNAME_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'NOME_TXT' | translate }}</ion-label>
+          <ion-input color="secondary" type="text" formControlName="nome" value="{{utente.nome}}"></ion-input>
+        </ion-item>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'EMAIL' | translate }}</ion-label>
+          <ion-input color="secondary" inputmode="email" type="email" formControlName="email" value="{{utente.email}}"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="modprofileFormModel.get('email').touched && modprofileFormModel.get('email').invalid">
+          <ion-text color="danger">{{ 'EMAIL_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'DATANASCITA' | translate }}</ion-label>
+          <ion-datetime style="color: #e04ae8;" [max]="now" pickerFormat="DD/MMM/YYYY" displayFormat="DD/MM/YYYY" color="secondary" formControlName="dataNascita" value="{{utente.dataNascita}}"></ion-datetime>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="modprofileFormModel.get('dataNascita').touched && modprofileFormModel.get('dataNascita').invalid">
+          <ion-text color="danger">{{ 'DATANASCITA_REQUIRED' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating" >{{ 'LANGUAGE' | translate }}</ion-label>
+          <ion-select style="color: #e04ae8;" formControlName="linguaPreferita" okText="{{ 'SAVE_BUTTON' | translate }}" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
+            <ion-select-option *ngFor="let lingua of lingue" [value]="lingua.valore">{{lingua.etichetta}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+          <p><ion-label position="floating">BIO</ion-label></p>
+          <p no-padding class="animated fadeInUp" style="margin-right: 15px; margin-left: -15px;"><ion-textarea style="height: 60px" class="textarea_style" value="{{utente.bio}}" formControlName="bio"></ion-textarea></p>
+
+      </div>
+      <div text-center style="margin-top: 25px">
+        <ion-button class="btn_login" size="medium" shape="round" color="primary" (click)="OnSave()">
+          {{ 'SAVE_BUTTON' | translate }}
+        </ion-button>
+      </div>
+    </form>
+
+  </div>
+
+</ion-content>

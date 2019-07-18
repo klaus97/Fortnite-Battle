@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'CREA_TORNEO' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button autoHide="false"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn login auth-page">
+
+  <div style="margin-top: 25px;" class="auth-content">
+    <form [formGroup]="createtorFormModel">
+      <div>
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'NAME_TOR' | translate }}</ion-label>
+          <ion-input color="secondary" maxlength="40" type="text" formControlName="nome"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('nome').touched && createtorFormModel.get('nome').invalid">
+        <ion-text color="danger">{{ 'NOME_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+          <ion-item no-padding class="animated fadeInUp">
+            <ion-label position="floating">Data:</ion-label>
+            <ion-datetime [min]="now" max="2020" displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD-MMM-YYYY HH:mm" style="color: #9b00bb" placeholder="..." formControlName="datainizio"></ion-datetime>
+          </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('datainizio').touched && createtorFormModel.get('datainizio').invalid">
+          <ion-text color="danger">{{ 'DATA_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">{{ 'DURATA_TOR' | translate }}</ion-label>
+          <ion-select  style="color: #9b00bb" formControlName="durata">
+            <ion-select-option value="1">1H</ion-select-option>
+            <ion-select-option value="2">2H</ion-select-option>
+            <ion-select-option value="3">3H</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('durata').touched && createtorFormModel.get('durata').invalid">
+          <ion-text color="danger">{{ 'DURATA_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">1st {{'PREMIO_TOR' | translate}}</ion-label>
+          <ion-input color="secondary" type="text" maxlength="25" formControlName="premio1"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('premio1').touched && createtorFormModel.get('premio1').invalid">
+          <ion-text color="danger">{{ 'PREMIO_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">2st {{'PREMIO_TOR' | translate}}</ion-label>
+          <ion-input color="secondary" type="text" maxlength="25" formControlName="premio2"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('premio2').touched && createtorFormModel.get('premio2').invalid">
+          <ion-text color="danger">{{ 'PREMIO_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">3st {{'PREMIO_TOR' | translate}}</ion-label>
+          <ion-input color="secondary" type="text" maxlength="25" formControlName="premio3"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="createtorFormModel.get('premio2').touched && createtorFormModel.get('premio2').invalid">
+          <ion-text color="danger">{{ 'PREMIO_REQUIRED_TOR' | translate }}</ion-text>
+        </p>
+
+        <p><ion-label position="floating">MORE:</ion-label></p>
+        <p no-padding class="animated fadeInUp" style="margin-right: 15px; margin-left: -15px;"><ion-textarea maxlength="50" placeholder="..." class="textarea_style" style="height: 60px"  formControlName="descrizione"></ion-textarea></p>
+
+      </div>
+    </form>
+
+
+  </div>
+
+  <div text-center style="margin-top: 12px">
+    <ion-button class="btn_login"  size="medium" shape="round" color="primary" (click)="OnCreaTor()">
+      {{ 'CREATETOR_BUTTON' | translate }}
+    </ion-button>
+  </div>
+
+</ion-content>

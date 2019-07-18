@@ -1,0 +1,89 @@
+{
+  "BACK_BUTTON_TEXT": "Back",
+
+  "LOGIN_BUTTON": "Enter",
+  "SIGNUP_BUTTON": "SignUp",
+  "DONE_BUTTON": "Done",
+  "SAVE_BUTTON": "Save",
+  "CANCEL_BUTTON": "Cancel",
+  "DELETE_BUTTON": "Delete",
+  "UPDATE_BUTTON": "Update",
+  "SEARCH_BUTTON": "Search",
+  "LEADERBOARD_BUTTON": "Leaderboard",
+  "JOIN_BUTTON": "Join",
+  "CREATETOR_BUTTON": "Create",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Login error",
+  "LOGIN_ERROR_SUB_TITLE": "Username and/or password Wrong!",
+
+  "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "PASSWORD_CONFIRM": "Confirm password",
+  "USERNAME_REQUIRED": "Username required",
+  "PASSWORD_REQUIRED": "Password required",
+  "PASSMATCH_REQUIRED": "Password and Confirm password did not match!",
+  "EMAIL_REQUIRED": "Email required",
+  "DATANASCITA_REQUIRED": "Birthday required",
+
+  "PROFILO_MENU": "Profile",
+  "NOTIZIE_MENU": "News",
+  "STATISTICHE_MENU": "Stats",
+  "ARMI_MENU": "Weapons",
+  "TORNEI_MENU": "Tournaments",
+  "LOGOUT_MENU": "Logout",
+
+  "CERCA_HOME": "Search",
+  "UPDATE_PROFILO": "Edit Profile",
+
+  "DETTAGLIO_TORNEO": "Tournament details",
+  "CREA_TORNEO": "Create Tournament",
+  "CLASSIFICA_TITLE": "Leaderboard",
+
+  "PROFILO_TITOLO": "Profile",
+  "EMAIL": "Email",
+  "DATANASCITA": "Date birthday",
+  "LANGUAGE": "Language",
+  "EMAIL_REQUIRED": "Email mandatory",
+
+  "LABEL_TORNEI": "My Tournments",
+  "TXTMYTO_TORNEI": "No tournments created",
+  "LABEL_REGOLAMENTO": "Rules",
+  "NAME_TOR": "Tournament name",
+  "TYPE_TOR": "Type",
+  "DURATA_TOR": "End times",
+  "PREMIO_TOR": "Prize",
+  "INIZIO_TXT": "Start",
+  "PARTECIPANTI_TXT": "Players",
+
+  "SCEGLI-ARMA_TXT": "Choose a weapon",
+  "SCEGLI-RARITA_TXT": "Choose a rarity",
+  "CARATTERISTICHE_TXT": "Weapon stats:",
+  "RARITA_TXT": "Rarity:",
+  "DANNICORPO_TXT": "Hit Body:",
+  "DANNITESTA_TXT": "Hit head:",
+  "RANGE_TXT": "Firerate:",
+  "RICARICA_TXT": "Reload time:",
+  "CARICATORE_TXT": "Magazine size:",
+
+  "NOME_TXT": "Name",
+  "UPDATE_AVATAR": "Edit Avatar",
+
+  "UPDATE-PROFILO_HEADER" : "Edit Profile",
+  "UPDATE-PROFILO_MESSAGE": "Your profile was successfully updated!!",
+  "UPDATE-PROFILO_HEADER-ERROR": "Error!",
+  "UPDATE-PROFILO_MESSAGE-ERROR": "Your Profilo wasn't update!!",
+
+  "TERMINI-CONDIZIONI_HEADER": "Terms and conditions",
+  "TERMINI-CONDIZIONI_MESSAGE": "Do you agree the terms and rules described above?",
+
+  "PARTECIPAZIONE_HEADER": "Warning!",
+  "PARTECIPAZIONE_MESSAGE": "You have alredy takes joined in this tournament!!",
+
+  "SIGNUP_MESSAGE": "Successfully registered!",
+  "SIGNUP_HEADER-ERROR": "Error!",
+  "SIGNUP_MESSAGE-ERROR": "Username already in the system or internal server error!!"
+
+}

@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-title color="light" class="title">{{ 'STATISTICHE_MENU' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p></p>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div style="text-align: left;">
+
+    <div id="overall">
+        <ion-label style="color: white;"><ion-icon name="md-infinite" style="font-size: medium"></ion-icon> OVERALL:</ion-label>
+
+      <div style="background-color: white;">
+
+        <ng-container *ngFor="let ovstats of stats ">
+          <ng-container *ngIf="ovstats.tipoModalita.includes('overall')">
+            <ion-row text-center>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.kd}}</ion-label><span style="display: block;">KD</span></ion-col>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.kills}}</ion-label><span style="display: block;">Kills</span></ion-col>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.vittorie}}</ion-label><span style="display: block;">Wins</span></ion-col>
+            </ion-row>
+            <ion-row text-center>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.partiteGiocate}}</ion-label><span style="display: block;">Matches</span></ion-col>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.punteggio}}</ion-label><span style="display: block;">Score</span></ion-col>
+              <ion-col size="4"><ion-label style="font-weight: bold; color: #ddb1ff;">{{ovstats.winrate}}%</ion-label><span style="display: block;">Winrate</span></ion-col>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+      </div>
+
+    </div>
+
+    <div id="solo">
+        <ion-label style="color: white;"> <ion-icon name="md-contact" style="font-size: medium"></ion-icon> SOLO:</ion-label>
+
+      <div style="background-color: white;">
+
+        <ng-container *ngFor="let ovstats of stats">
+          <ng-container *ngIf="ovstats.tipoModalita.includes('solo')">
+        <ion-row text-center>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.kd}}</ion-label><span style="display: block;">KD</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.kills}}</ion-label><span style="display: block;">Kills</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.vittorie}}</ion-label><span style="display: block;">Wins</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.partiteGiocate}}</ion-label><span style="display: block;">Matches</span></ion-col>
+        </ion-row>
+        <ion-row text-center>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.punteggio}}</ion-label><span style="display: block;">Score</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.winrate}}%</ion-label><span style="display: block;">Winrate</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.top10}}</ion-label><span style="display: block;">Top 10</span></ion-col>
+          <ion-col size="3"><ion-label style="font-weight: bold; color: #e25bff;">{{ovstats.top5}}</ion-label><span style="display: block;">Top 25</span></ion-col>
+        </ion-row>
+          </ng-container>
+        </ng-container>
+
+      </div>
+
+    </div>
+
+    <div id="duo">
+        <ion-label style="color: white;"><ion-icon name="md-contacts" style="font-size: medium"></ion-icon> DUO:</ion-label>
+
+      <div style="background-color: white;">
+
+        <ng-container *ngFor="let ovstats of stats">
+          <ng-container *ngIf="ovstats.tipoModalita.includes('duo')">
+            <ion-row text-center>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.kd}}</ion-label><span style="display: block;">KD</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.kills}}</ion-label><span style="display: block;">Kills</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.vittorie}}</ion-label><span style="display: block;">Wins</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.partiteGiocate}}</ion-label><span style="display: block;">Matches</span></ion-col>
+            </ion-row>
+            <ion-row text-center>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.punteggio}}</ion-label><span style="display: block;">Score</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.winrate}}%</ion-label><span style="display: block;">Winrate</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.top5}}</ion-label><span style="display: block;">Top 5</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold;color: #9b00bb;">{{ovstats.top10}}</ion-label><span style="display: block;">Top 12</span></ion-col>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+
+      </div>
+
+    </div>
+
+    <div id="squad">
+        <ion-label style="color: white;"><ion-icon name="md-contacts" style="font-size: medium"></ion-icon> SQUAD:</ion-label>
+
+      <div style="background-color: white;">
+
+        <ng-container *ngFor="let ovstats of stats">
+          <ng-container *ngIf="ovstats.tipoModalita.includes('squad')">
+            <ion-row text-center>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.kd}}</ion-label><span style="display: block;">KD</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.kills}}</ion-label><span style="display: block;">Kills</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.vittorie}}</ion-label><span style="display: block;">Wins</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.partiteGiocate}}</ion-label><span style="display: block;">Matches</span></ion-col>
+            </ion-row>
+            <ion-row text-center>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.punteggio}}</ion-label><span style="display: block;">Score</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.winrate}}%</ion-label><span style="display: block;">Winrate</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.top5}}</ion-label><span style="display: block;">Top 3</span></ion-col>
+              <ion-col size="3"><ion-label style="font-weight: bold; color: blueviolet;">{{ovstats.top10}}</ion-label><span style="display: block;">Top 6</span></ion-col>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-content>

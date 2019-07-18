@@ -1,0 +1,93 @@
+{
+  "BACK_BUTTON_TEXT":  "Indietro",
+
+  "LOGIN_BUTTON": "Accedi",
+  "SIGNUP_BUTTON": "Registrati",
+  "DONE_BUTTON": "Fatto",
+  "SAVE_BUTTON": "Salva",
+  "CANCEL_BUTTON": "Annulla",
+  "DELETE_BUTTON": "Elimina",
+  "UPDATE_BUTTON": "Modifica",
+  "SEARCH_BUTTON": "Cerca",
+  "LEADERBOARD_BUTTON": "Classifica",
+  "JOIN_BUTTON": "Partecipa",
+  "CREATETOR_BUTTON": "Crea",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Errore Login",
+  "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate!",
+
+  "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "PASSWORD_CONFIRM": "Conferma password",
+  "USERNAME_REQUIRED": "Username obbligatorio",
+  "PASSWORD_REQUIRED": "Password obbligatoria",
+  "PASSMATCH_REQUIRED": "Password e Conferma password diverse!",
+  "EMAIL_REQUIRED": "Email obbligatoria",
+  "DATANASCITA_REQUIRED": "Data di nascita obbligatoria",
+
+  "PROFILO_MENU": "Profilo",
+  "NOTIZIE_MENU": "Notizie",
+  "STATISTICHE_MENU": "Statistiche",
+  "ARMI_MENU": "Armi",
+  "TORNEI_MENU": "Tornei",
+  "LOGOUT_MENU": "Esci",
+
+  "CERCA_HOME": "Cerca",
+  "UPDATE_PROFILO": "Modifica Profilo",
+
+  "DETTAGLIO_TORNEO": "Dettaglio Torneo",
+  "CREA_TORNEO": "Crea Torneo",
+  "CLASSIFICA_TITLE": "Classifica",
+
+  "PROFILO_TITOLO": "Profilo",
+  "EMAIL": "Email",
+  "DATANASCITA": "Data di Nascita",
+  "LANGUAGE": "Lingua",
+  "EMAIL_REQUIRED": "Email obbligatoria",
+
+  "LABEL_TORNEI": "I miei tornei",
+  "TXTMYTO_TORNEI": "Nessun torneo presente",
+  "LABEL_REGOLAMENTO": "Regolamento",
+  "NAME_TOR": "Nome del torneo",
+  "TYPE_TOR": "Modalità",
+  "DURATA_TOR": "Durata torneo",
+  "PREMIO_TOR": "Premio",
+  "NOME_REQUIRED_TOR": "Nome torneo obbligatorio!",
+  "DATA_REQUIRED_TOR": "Data torneo obbligatoria!",
+  "DURATA_REQUIRED_TOR": "Durata torneo obbligatoria!",
+  "PREMIO_REQUIRED_TOR": "Premio torneo obbligatorio!",
+  "INIZIO_TXT": "Inizio",
+  "PARTECIPANTI_TXT": "Partecipanti",
+
+  "SCEGLI-ARMA_TXT": "Scegli un arma",
+  "SCEGLI-RARITA_TXT": "Scegli la rarità",
+  "CARATTERISTICHE_TXT": "Caratteristiche",
+  "RARITA_TXT": "Rarità:",
+  "DANNICORPO_TXT": "Danni Corpo:",
+  "DANNITESTA_TXT": "Danni Testa:",
+  "RANGE_TXT": "Firerate:",
+  "RICARICA_TXT": "Tempo di ricarica:",
+  "CARICATORE_TXT": "Caricatore:",
+
+  "WELCOME_TXT": "BENVENUTO NEL TUO PROFILO",
+  "NOME_TXT": "Nome",
+  "UPDATE_AVATAR": "Modifica Avatar",
+
+  "UPDATE-PROFILO_HEADER" : "Modifica Profilo",
+  "UPDATE-PROFILO_MESSAGE": "La modifica del profilo è avvenuta con successo!!",
+  "UPDATE-PROFILO_HEADER-ERROR": "Errore!",
+  "UPDATE-PROFILO_MESSAGE-ERROR": "Ci sono stati errori nell'aggiornamento del tuo profilo",
+
+  "TERMINI-CONDIZIONI_HEADER": "Accettazione termini e condizioni",
+  "TERMINI-CONDIZIONI_MESSAGE": "Accetti i termini e il regolamento sopra descritto?",
+
+  "PARTECIPAZIONE_HEADER": "Attenzione!",
+  "PARTECIPAZIONE_MESSAGE": "Partecipi già a questo torneo!!",
+
+  "SIGNUP_MESSAGE": "Registrato correttamente!!",
+  "SIGNUP_HEADER-ERROR": "Errore!",
+  "SIGNUP_MESSAGE-ERROR": "Username gia presente o errore interno al Server!"
+}
